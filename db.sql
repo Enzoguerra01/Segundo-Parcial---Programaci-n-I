@@ -5,3 +5,11 @@ CREATE TABLE usuario(
     password varchar(255)
 );
 
+CREATE TABLE publicaciones (
+  id int(11),
+  id_usuario int(11),
+  cuerpo text,
+  fecha date,
+  hora time
+)
+
