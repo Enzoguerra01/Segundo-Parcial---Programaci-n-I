@@ -22,8 +22,9 @@ require "../utils/autoload.php";
         }
 
         private function insertar(){
-            $sql = "INSERT INTO usuario (username,password) VALUES (
+            $sql = "INSERT INTO usuario (username,complete_name,password) VALUES (
             '" . $this -> Nombre . "',
+            '" . $this -> NombreCompleto . "',
             '" . $this -> hashearPassword($this -> Password) . "')";
 
             $this -> conexionBaseDeDatos -> query($sql);
