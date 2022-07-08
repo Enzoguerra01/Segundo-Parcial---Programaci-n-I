@@ -1,6 +1,5 @@
 <?php 
     require "../utils/autoload.php";
-
      if(isset($_SESSION['autenticado']))
         header("Location: /");
 ?>
@@ -26,6 +25,8 @@
     <?php if(isset($parametros['error']) && $parametros['error'] === true ) :?>
         <div style="color: red;">Credenciales invalidas.</div>
     <?php endif;?>
+
+    <a href="/">Volver</a>
 
     
 </body>
