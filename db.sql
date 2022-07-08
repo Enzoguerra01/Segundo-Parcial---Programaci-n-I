@@ -6,10 +6,9 @@ CREATE TABLE usuario(
 );
 
 CREATE TABLE publicaciones (
-  id int(11),
-  id_usuario int(11),
+  id int primary key auto_increment,
+  autor varchar(50),
   cuerpo text,
-  fecha date,
-  hora time
+  fecha_hora timestamp
 )
 
