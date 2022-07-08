@@ -1,8 +1,7 @@
 <?php
 require "../utils/autoload.php";
 
-if (isset($_SESSION['autenticado']))
-    header("Location: /");
+$publicaciones = PublicacionControlador::ObtenerTodos();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,10 +14,25 @@ if (isset($_SESSION['autenticado']))
 </head>
 
 <body>
-    <h1>Blog</h1>
-
-
-
+    <?php if (isset($_SESSION['autenticado'])) : ?>
+        Bienvenido <?php echo $_SESSION['nombreUsuario'] ?>!
+        <a href="/crear_publicacion">Crear Publicación</a>
+        <a href="/cerrar_sesion">Salir</a>
+    <?php else : ?>
+        <a href="/login">Login</a>
+    <?php endif; ?>
+    <h2>Publicaciones</h2>
+    <?php
+    foreach ($publicaciones as $publicacion) :
+    ?>
+        <div>
+            <div>
+                <?php echo $publicacion['cuerpo'] ?>
+            </div>
+            <cite>Autor: <?php echo $publicacion['autor'] ?> / Fecha: <?php echo $publicacion['fecha_hora'] ?></cite>
+            <hr>
+        </div>
+    <?php endforeach; ?>
 </body>
 
 </html>
